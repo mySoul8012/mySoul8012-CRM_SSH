@@ -1,0 +1,196 @@
+.nav-container{
+    height: 100%;
+    position: relative;
+}
+/*左侧导航部分*/
+.nav-container .left-nav{
+    display: inline-block;
+    width: 230px;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+}
+.nav-container .left-nav .left-nav-right-shadow{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 6px;
+    box-shadow: -2px 0 4px 0 #ccc inset;
+    height: 100%;
+}
+.nav-container .left-nav .hidden-menu{
+    position: absolute;
+    right: 0;
+    top: 8px;
+    color: #000;
+    width: 16px;
+    height: 25px;
+    background-color: #fff;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+}
+.nav-container .left-nav .hidden-menu i{
+    margin-top: 6px;
+}
+.left-nav>h3{
+    height: 40px;
+    background-color: #1895CE;
+    color: #fff;
+    line-height: 40px;
+}
+.left-nav>h3 i{
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.left-nav .nav .nav-li>a{
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    background: linear-gradient(#FBFBFB,#F1F1F1,#E5E5E5);
+}
+.left-nav .nav .nav-li>a i{
+    margin-left: 25px;
+    margin-right: 10px;
+}
+.left-nav .nav .sub-nav{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    display: none;
+}
+.left-nav .nav .nav-current>.sub-nav{
+    display: block;
+}
+.left-nav .nav .nav-current i.fa-caret-right:before{
+    content: '\f0d7';
+}
+.left-nav .nav .sub-nav .subnav-li{
+    height: 36px;
+    line-height: 36px;
+}
+.left-nav .nav .sub-nav .subnav-li i{
+    margin-left: 25px;
+    margin-right: 10px;
+}
+.left-nav .nav .sub-nav .subnav-current{
+    background-color: #38A3D5;
+    border-left: 4px solid #ff0000;
+}
+.left-nav .nav .sub-nav .subnav-current a{
+    color: #fff;
+}
+/*右侧部分*/
+.right-content{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+.right-content .right-content-header{
+    padding: 0 20px 0 230px;
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+.right-content .right-content-iframe{
+    padding: 0 5px 0 235px;
+}
+.right-content .right-content-header div.show-menu{
+    position: absolute;
+    top: 8px;
+    left: 230px;
+    color: #fff;
+    width: 16px;
+    height: 25px;
+    background-color: #1698D5;
+    text-align: center;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+.right-content .right-content-header div.show-menu i{
+    margin-top: 6px;
+}
+.right-content .right-content-tab{
+    display: inline-block;
+    margin-left: 40px;
+    margin-top: 10px;
+    height: 30px;
+}
+.right-content .right-content-tab li{
+    float: left;
+    padding: 5px 20px;
+    margin-left: 10px;
+    background-color: #F6F6F6;
+    border-left: 1px solid #D7D7D7;
+    border-right: 1px solid #D7D7D7;
+    border-top: 1px solid #D7D7D7;
+}
+.right-content .right-content-tab li.tab-current{
+    background-color: #fff;
+    border-top: 2px solid #24B7EE;
+    border-left: 1px solid #D7D7D7;
+    border-right: 1px solid #D7D7D7;
+    padding-right: 10px;
+}
+.right-content .right-content-tab li.tab-current i{
+    margin-left: 10px;
+}
+.right-content i.fa-times-circle{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+}
+.right-content i.fa-times-circle:hover{
+    color: #ff0000;
+}
+.right-content i.fa-caret-square-down{
+    margin-left: 20px;
+    vertical-align: 10px;
+    color: #21A6D7;
+    cursor: pointer;
+    display: none;
+}
+.right-content i.fa-caret-square-down:hover{
+    color: #ff0000;
+}
+/*更多*/
+.tab-more{
+    position: absolute;
+    top: 41px;
+    left: 450px;
+    background-color: #F2F2F2;
+    box-shadow: -3px 0 3px 0 #ccc,
+                3px 0 3px 0 #ccc,
+                0 3px 3px 0 #ccc;
+    display: none;
+
+}
+.tab-more li{
+    line-height: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+    cursor: pointer;
+}
+.tab-more li:hover{
+    background-color: #21A6D7;
+    color: #fff;
+}
+.tab-more li:hover a{
+    color: #fff;
+}
+.tab-more li a{
+    margin-right: 10px;
+    display: inline-block;
+    height: 100%;
+}
+.tab-more li i{
+    text-align: right;
+}

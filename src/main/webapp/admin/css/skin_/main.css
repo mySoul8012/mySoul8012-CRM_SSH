@@ -1,0 +1,77 @@
+/*设置整体边距*/
+.content-container{
+    display: inline-block;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: 100%;
+}
+/*图标部分的样式*/
+.content-container .icons-list{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.content-container .icons-list li{
+    display: inline-block;
+    margin-right: 30px;
+    text-align: center;
+}
+.content-container .icons-list li a{
+    color: #000;
+}
+/*主体部分*/
+#main-content{
+    margin-left: 20px;
+}
+#main-content .content-item{
+    width: 612px;
+    height: 352px;
+    border: 1px solid #CFCFCF;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+}
+.content-item .content-item-top{
+    height: 40px;
+    background: url("../../images/skin_/toolbarbg.png") repeat-x;
+    border-bottom: 1px solid #CFCFCF;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+}
+.content-item .content-item-top h5{
+    font-weight: bold;
+    line-height: 40px;
+    margin-left: 20px;
+    display: inline-block;
+}
+.content-item .content-item-top .item-top-icons{
+    display: inline-block;
+    margin-right: 20px;
+}
+.content-item .content-item-top .item-top-icons i{
+    margin-left: 10px;
+    cursor: pointer;
+    line-height: 40px;
+}
+.content-item .content-item-bottom ul{
+    margin-left: 20px;
+}
+.content-item .content-item-bottom ul li a{
+    line-height: 31px;
+}
+.content-item .content-item-bottom ul li a::before{
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f15c";
+    margin-right: 10px;
+}
+.chart-table{
+    position: relative;
+    margin: auto;
+    height: 600px;
+    width: 600px;
+}
