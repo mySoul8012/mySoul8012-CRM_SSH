@@ -8,5 +8,5 @@ before_install:
   - docker run -d -p 80:8080 melovemingming/crm
   - docker ps -a
   - docker login -u melovemingming -p ABCcba20170607
-  - docker push melovemingming/crm
+  - docker push melovemingming/crm:latest
 
