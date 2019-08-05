@@ -5,12 +5,12 @@ services:
 
 
 before_install:
-  - docker build -t melovemingming/crm:5.0.1 .
-  - docker run -d -p 80:8080 melovemingming/crm:5.0.1
+  - docker build -t melovemingming/crm:6.0.1 .
+  - docker run -d -p 80:8080 melovemingming/crm:6.0.1
   - docker ps -a
 script:
   - docker login -u melovemingming -p ABCcba20170607
-  - docker push melovemingming/crm:5.0.1
+  - docker push melovemingming/crm:6.0.1
 notifications:
   email:
     - mingming@mingming.email
