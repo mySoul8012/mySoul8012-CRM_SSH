@@ -5,7 +5,7 @@ services:
 
 before_install:
   - docker build -t carlad/sinatra .
-  - docker run -d -p 80:8080 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
+  - docker run -d -p 80:8080 carlad/sinatra
   - docker ps -a
   - curl http://127.0.0.1
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
