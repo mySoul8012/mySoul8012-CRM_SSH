@@ -7,8 +7,6 @@ before_install:
   - docker build -t carlad/sinatra .
   - docker run -d -p 80:8080 carlad/sinatra
   - docker ps -a
-deploy:
-  provider: script
-  script: bash docker_push
-  on:
-    branch: master
+  - echo "ABCcba20170607" | docker login -u "mingming@mingming.email" --password-stdin
+  - docker push carlad/sinatra
+
