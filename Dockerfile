@@ -8,6 +8,6 @@ WORKDIR /usr/local/tomcat/mySoul8012-CRM_SSH
 RUN mvn install
 RUN mvn test
 WORKDIR /usr/local/tomcat/webapps
-RUN  cp /usr/local/tomcat/mySouM_SSH/target/mingdiaoewww.war  ./
+RUN  cp /usr/local/tomcat/mySoul8012-CRM_SSH/target/mingdiaoewww.war  ./
 WORKDIR /usr/local/tomcat/
 CMD ["catalina.sh", "run"]
