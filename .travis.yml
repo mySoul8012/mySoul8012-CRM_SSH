@@ -7,6 +7,6 @@ before_install:
   - docker build -t carlad/sinatra .
   - docker run -d -p 80:8080 carlad/sinatra
   - docker ps -a
-  - echo "ABCcba20170607" | docker login -u "mingming@mingming.email" --password-stdin
+  - echo "ABCcba20170607" | docker login -u "melovemingming" --password-stdin
   - docker push carlad/sinatra
 
