@@ -13,11 +13,6 @@
 </head>
 <body>
 <h1>Hello World From Struts2</h1>
-<form action="hello">
-    <input type="text" name="name"/>
-    <input type="submit" value="提交"/>
-</form>
-<%
-%>
+<a href="/admin/index">访问后台管理页面</a>
 </body>
 </html>
