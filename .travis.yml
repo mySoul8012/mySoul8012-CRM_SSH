@@ -5,9 +5,9 @@ services:
 
 
 before_install:
-  - docker build -t melovemingming/crm .
-  - docker run -d -p 80:8080 melovemingming/crm
+  - docker build -t melovemingming/crm:1.1.0 .
+  - docker run -d -p 80:8080 melovemingming/crm:1.1.0
   - docker ps -a
   - docker login -u melovemingming -p ABCcba20170607
-  - docker push melovemingming/crm
+  - docker push melovemingming/crm:1.1.0
 
