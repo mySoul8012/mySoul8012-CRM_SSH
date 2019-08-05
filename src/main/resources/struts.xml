@@ -7,7 +7,6 @@
 <struts>
     <constant name="struts.devMode" value="true"/>
     <constant name="struts.objectFactory" value="spring"/>
-    <constant name="struts.objectFactory.spring.autoWire" value="type"/>
 
     <package name="admin" namespace="/admin" extends="struts-default">
 
@@ -43,43 +42,43 @@
         </global-exception-mappings>
 
         <!-- 登录 -->
-        <action name="checkLogin" class="com.ming.web.LoginAction" method="checkLogin">
+        <action name="checkLogin" class="loginAction" method="checkLogin">
             <result name="success">
                 <param name="location">/WEB-INF/classes/admin/index.jsp</param>
             </result>
         </action>
 
-        <action name="index" class="com.ming.web.indexAction" method="method">
+        <action name="index" class="indexAction" method="method">
             <result name="success">
                 <param name="location" >/WEB-INF/classes/admin/index.jsp</param>
             </result>
         </action>
 
-        <action name="login" class="com.ming.web.indexAction" method="login">
+        <action name="login" class="indexAction" method="login">
             <result name="success">
                 <param name="location">/WEB-INF/classes/admin/login.jsp</param>
             </result>
         </action>
 
-        <action name="main" class="com.ming.web.indexAction" method="method">
+        <action name="main" class="indexAction" method="method">
             <result name="success">
                 <param name="location">/WEB-INF/classes/admin/main.html</param>
             </result>
         </action>
 
-        <action name="nav" class="com.ming.web.indexAction" method="method">
+        <action name="nav" class="indexAction" method="method">
             <result name="success">
                 <param name="location">/WEB-INF/classes/admin/nav.html</param>
             </result>
         </action>
 
-        <action name="validate" class="com.ming.utils.ValidateCode" method="generateValidateCode">
+        <action name="validate" class="indexAction" method="generateValidateCode">
         </action>
 
 
         <!-- 角色管理action -->
         <!--角色管理的action-->
-        <action name="role" class="com.ming.web.RoleAction" method="getToTalRoles">
+        <action name="role" class="roleAction" method="getToTalRoles">
             <result type="json">
                 <!-- 剔除属性值 -->
                 <param name="excludeProperties">
@@ -92,11 +91,11 @@
             </result>
         </action>
 
-        <action name="updateRole" class="com.ming.web.RoleAction" method="updateRole"/>
+        <action name="updateRole" class="roleAction" method="updateRole"/>
 
-        <action name="deleteRole" class="com.ming.web.RoleAction" method="deleteRoleById"/>
+        <action name="deleteRole" class="roleAction" method="deleteRoleById"/>
 
-        <action name="saveRole" class="com.ming.web.RoleAction" method="saveRole">
+        <action name="saveRole" class="roleAction" method="saveRole">
             <result type="json">
                 <param name="excludeProperties">
                     roleService,receiveJsonData,roles,users,userService,roleItem
@@ -107,7 +106,7 @@
             </result>
         </action>
 
-        <action name="getUsersByRoleId" class="com.ming.web.RoleAction" method="getUsersByRoleId">
+        <action name="getUsersByRoleId" class="roleAction" method="getUsersByRoleId">
             <result type="json">
                 <param name="excludeProperties">
                     roleService,receiveJsonData,roles,role,userService,roleItem,users
@@ -120,7 +119,7 @@
 
         <action name="deleteUserByRole" class="roleAction" method="deleteUserByRole"></action>
 
-        <action name="addUserByRole" class="com.ming.web.RoleAction" method="addUserByRole">
+        <action name="addUserByRole" class="roleAction" method="addUserByRole">
             <result type="json">
                 <param name="excludeProperties">
                     roleService,receiveJsonData,roles,role,users,userService,users
@@ -132,21 +131,21 @@
         </action>
 
 
-        <action name="showRole" class="com.ming.web.indexAction" method="login">
+        <action name="showRole" class="indexAction" method="login">
             <result name="success">
                 <param name="location">/WEB-INF/classes/admin/role.html</param>
             </result>
         </action>
 
         <!-- 用户管理 -->
-        <action name="userShow" class="com.ming.web.indexAction" method="login">
+        <action name="userShow" class="indexAction" method="login">
             <result name="success">
                 <param name="location">/WEB-INF/classes/admin/user.html</param>
             </result>
         </action>
 
         <!--用户管理的action-->
-        <action name="user" class="com.ming.web.UserAction" method="getAllUsers">
+        <action name="user" class="userAction" method="getAllUsers">
             <result type="json">
                 <param name="excludeProperties">
                     userService,receiveData,userItem,roleService,allUserNames
@@ -157,7 +156,7 @@
             </result>
         </action>
 
-        <action name="getRolesByUserId" class="com.ming.web.UserAction" method="getRolesByUserId">
+        <action name="getRolesByUserId" class="userAction" method="getRolesByUserId">
             <result type="json">
                 <param name="excludeProperties">
                     userService,receiveData,userItem,roleService,allUserNames
@@ -168,11 +167,11 @@
             </result>
         </action>
 
-        <action name="updateUser" class="com.ming.web.UserAction" method="updateUser"/>
+        <action name="updateUser" class="userAction" method="updateUser"/>
 
-        <action name="deleteUser" class="com.ming.web.UserAction" method="deleteUser"/>
+        <action name="deleteUser" class="userAction" method="deleteUser"/>
 
-        <action name="saveUser" class="com.ming.web.UserAction" method="saveUser">
+        <action name="saveUser" class="userAction" method="saveUser">
             <result type="json">
                 <param name="excludeProperties">
                     userService,userItems,receiveData,roleService,allUserNames
@@ -183,7 +182,7 @@
             </result>
         </action>
 
-        <action name="addRoleForUser" class="com.ming.web.UserAction" method="addRolesForUser">
+        <action name="addRoleForUser" class="userAction" method="addRolesForUser">
             <result type="json">
                 <param name="excludeProperties">
                     userService,userItems,receiveData,roleService,allUserNames
@@ -194,9 +193,9 @@
             </result>
         </action>
 
-        <action name="deleteRoleByUser" class="com.ming.web.UserAction" method="deleteRoleByUser"/>
+        <action name="deleteRoleByUser" class="userAction" method="deleteRoleByUser"/>
 
-        <action name="updateRoleByUser" class="com.ming.web.UserAction" method="updateRoleByUser">
+        <action name="updateRoleByUser" class="userAction" method="updateRoleByUser">
             <result type="json">
                 <param name="excludeProperties">
                     userService,userItems,receiveData,roleService,allUserNames
@@ -207,7 +206,7 @@
             </result>
         </action>
 
-        <action name="getAllUserNames" class="com.ming.web.UserAction" method="queryAllUserNames">
+        <action name="getAllUserNames" class="userAction" method="queryAllUserNames">
             <result type="json">
                 <param name="excludeProperties">
                     userService,userItems,receiveData,roleService,userItem
@@ -220,14 +219,14 @@
 
 
         <!-- 数据字典 -->
-        <action name="dictShow" class="com.ming.web.indexAction" method="login">
+        <action name="dictShow" class="indexAction" method="login">
             <result>
                 <param name="location">/WEB-INF/classes/admin/dict.html</param>
             </result>
         </action>
 
 
-        <action name="getFirstCategories" class="com.ming.web.DictAction" method="getFirstCategories">
+        <action name="getFirstCategories" class="dictAction" method="getFirstCategories">
             <result type="json">
                 <param name="excludeProperties">
                     dictService,receiveData,dict
@@ -238,7 +237,7 @@
             </result>
         </action>
 
-        <action name="getSecondCategories" class="com.ming.web.DictAction" method="getSecondCategoriesByTypeCode">
+        <action name="getSecondCategories" class="dictAction" method="getSecondCategoriesByTypeCode">
             <result type="json">
                 <param name="excludeProperties">
                     dictService,receiveData,dict
@@ -250,14 +249,14 @@
         </action>
 
 
-        <action name="addFirstCategory" class="com.ming.web.DictAction" method="addFirstCategory"/>
+        <action name="addFirstCategory" class="dictAction" method="addFirstCategory"/>
 
-        <action name="deleteFirstCategory" class="com.ming.web.DictAction" method="deleteFirstCategory"/>
+        <action name="deleteFirstCategory" class="dictAction" method="deleteFirstCategory"/>
 
-        <action name="updateFirstCategory" class="com.ming.web.DictAction" method="updateFirstCategory"/>
+        <action name="updateFirstCategory" class="dictAction" method="updateFirstCategory"/>
 
 
-        <action name="addSecondCategory" class="com.ming.web.DictAction" method="addSecondCategory">
+        <action name="addSecondCategory" class="dictAction" method="addSecondCategory">
             <result type="json">
                 <param name="excludeProperties">
                     dictService,receiveData,dicts
@@ -268,34 +267,34 @@
             </result>
         </action>
 
-        <action name="deleteSecondCategory" class="com.ming.web.DictAction" method="deleteSecondCategory"/>
+        <action name="deleteSecondCategory" class="dictAction" method="deleteSecondCategory"/>
 
 
-        <action name="updateSecondCategory" class="com.ming.web.DictAction" method="updateSecondCategory"/>
+        <action name="updateSecondCategory" class="dictAction" method="updateSecondCategory"/>
 
 
 
         <!-- 客户action -->
-        <action name="addCustomerShow" class="com.ming.web.CustomerAction" method="addCustomerShow">
+        <action name="addCustomerShow" class="customerAction" method="addCustomerShow">
             <result name="success">
                 <param name="location">/WEB-INF/classes/admin/cust_add.jsp</param>
             </result>
         </action>
 
-        <action name="addCustomer" class="com.ming.web.CustomerAction" method="saveCustomer">
+        <action name="addCustomer" class="customerAction" method="saveCustomer">
             <result name="success">
                 <param name="location">/WEB-INF/classes/admin/cust_add.jsp</param>
             </result>
         </action>
 
-        <action name="custList" class="com.ming.web.CustomerAction" method="getCustomersByPage">
+        <action name="custList" class="customerAction" method="getCustomersByPage">
             <result name="success">
                 <param name="location">/WEB-INF/classes/admin/cust_list.jsp</param>
             </result>
         </action>
 
 
-        <action name="showCustomer" class="com.ming.web.CustomerAction" method="getCustomerById">
+        <action name="showCustomer" class="customerAction" method="getCustomerById">
             <result name="show">
                 <param name="location">/WEB-INF/classes/admin/cust_show.jsp</param>
             </result>
@@ -305,7 +304,7 @@
         </action>
 
 
-        <action name="deleteCustomer" class="com.ming.web.CustomerAction" method="deleteCustomerById">
+        <action name="deleteCustomer" class="customerAction" method="deleteCustomerById">
             <!-- 传递 action 多个action共享数据 -->
             <result type="chain" name="success">
                 <param name="actionName">custList</param>
@@ -317,7 +316,7 @@
         </action>
 
 
-        <action name="updateCustomer" class="com.ming.web.CustomerAction" method="updateCustomer">
+        <action name="updateCustomer" class="customerAction" method="updateCustomer">
             <!-- 结果跳转 请求参数消失 -->
             <result type="redirectAction" name="success">
                 <param name="actionName">custList</param>
@@ -329,7 +328,7 @@
 
 
         <!--文件上传的action-->
-        <action name="upload" class="com.ming.web.FileUploadAction" method="upload">
+        <action name="upload" class="fileUploadAction" method="upload">
             <result type="json">
                 <param name="excludeProperties">
                     file,fileContentType,fileFileName,id,lastModifiedDate,name,size,type
@@ -340,7 +339,7 @@
             </result>
         </action>
 
-        <action name="customerNames" class="com.ming.web.CustomerAction" method="getAllCustomerNames">
+        <action name="customerNames" class="customerAction" method="getAllCustomerNames">
             <result type="json">
                 <param name="excludeProperties">
                     customerService,
@@ -355,26 +354,26 @@
 
 
         <!-- 联系人管理 action -->
-        <action name="linkman_add_show" class="com.ming.web.LinkmanAction" method="get_linkman_add_show">
+        <action name="linkman_add_show" class="linkmanAction" method="get_linkman_add_show">
             <result name="success">
                 <param name="location">/WEB-INF/classes/admin/linkman_add.jsp</param>
             </result>
         </action>
 
-        <action name="linkman_edit_show" class="com.ming.web.LinkmanAction" method="getLinkmen">
+        <action name="linkman_edit_show" class="linkmanAction" method="getLinkmen">
             <result name="success">
                 <param name="location">/WEB-INF/classes/admin/linkman_edit.jsp</param>
             </result>
         </action>
 
-        <action name="lkm_list" class="com.ming.web.LinkmanAction" method="getLinkmen">
+        <action name="lkm_list" class="linkmanAction" method="getLinkmen">
             <result name="success">
                 <param name="location">/WEB-INF/classes/admin/linkman_list.jsp</param>
             </result>
         </action>
 
 
-        <action name="lkm_add" class="com.ming.web.LinkmanAction" method="addLinkman">
+        <action name="lkm_add" class="linkmanAction" method="addLinkman">
             <result name="success">
                 <param name="location">/WEB-INF/classes/admin/linkman_add.jsp</param>
             </result>
@@ -382,7 +381,7 @@
         
 
 
-        <action name="lkm_operate" class="com.ming.web.LinkmanAction" method="getLinkmanById">
+        <action name="lkm_operate" class="linkmanAction" method="getLinkmanById">
             <result name="show">
                 <param name="location">/WEB-INF/classes/admin/linkman_show.jsp</param>
             </result>
@@ -392,7 +391,7 @@
         </action>
 
 
-        <action name="lkm_delete" class="com.ming.web.LinkmanAction" method="deleteLinkmanById">
+        <action name="lkm_delete" class="linkmanAction" method="deleteLinkmanById">
             <result type="chain">
                 <param name="actionName">lkm_list</param>
                 <param name="namespace">/admin</param>
@@ -402,7 +401,7 @@
             </result>
         </action>
 
-        <action name="lkm_edit" class="com.ming.web.LinkmanAction" method="updateLinkmanById">
+        <action name="lkm_edit" class="linkmanAction" method="updateLinkmanById">
             <result type="redirectAction">
                 <param name="actionName">lkm_list</param>
                 <param name="namespace">/admin</param>

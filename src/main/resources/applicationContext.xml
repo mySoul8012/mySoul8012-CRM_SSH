@@ -130,13 +130,17 @@
         <property name="userService" ref="userService" />
     </bean>
 
+    <bean id="indexAction" class="com.ming.web.indexAction" scope="prototype">
+
+    </bean>
+
     <bean id="userAction" class="com.ming.web.UserAction" scope="prototype">
         <property name="roleService" ref="roleService"/>
         <property name="userService" ref="userService"/>
      </bean>
 
     <bean id="loginAction" class="com.ming.web.LoginAction" scope="prototype">
-        <property name="userService" ref="userService" />
+        <property name="userService" ref="userService"/>
     </bean>
 
     <bean id="dictAction" class="com.ming.web.DictAction" scope="prototype">
