@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/fontawesome-all.css">
+    <link rel="stylesheet" href="css/skin_/nav.css">
+</head>
+<body>
+
+<div class="nav-container">
+    <!--左侧导航部分-->
+    <div class="left-nav">
+        <div class="left-nav-right-shadow"></div>
+        <div class="hidden-menu"><i class="fas fa-caret-left"></i></div>
+        <h3><i class="fas fa-list-ul"></i>后台管理</h3>
+        <ul class="nav">
+            <li class="nav-li nav-current">
+                <a href="javascript:;"><i class="fas fa-caret-right"></i><span>管理首页</span></a>
+                <!--因为有二级菜单，因此li中又包含ul + li -->
+                <ul class="sub-nav">
+                    <li class="subnav-li subnav-current" data-href="/admin/main" data-id="1">
+                        <a href="javascript:;">
+                            <i class="far fa-file"></i><span>首页</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-li">
+                <a href="javascript:;"><i class="fas fa-caret-right"></i><span>客户管理</span></a>
+                <!--因为有二级菜单，因此li中又包含ul + li -->
+                <ul class="sub-nav">
+                    <li class="subnav-li" data-href="addCustomerShow" data-id="2">
+                        <a href="javascript:;">
+                            <i class="far fa-file"></i><span>新增客户</span>
+                        </a>
+                    </li>
+                    <li class="subnav-li" data-href="custList" data-id="3">
+                        <a href="javascript:;">
+                            <i class="far fa-file"></i><span>客户列表</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-li">
+                <a href="javascript:;"><i class="fas fa-caret-right"></i><span>联系人管理</span></a>
+                <!--因为有二级菜单，因此li中又包含ul + li -->
+                <ul class="sub-nav">
+                    <li class="subnav-li" data-href="linkman_add_show" data-id="4">
+                        <a href="javascript:;">
+                            <i class="far fa-file"></i><span>新增联系人</span>
+                        </a>
+                    </li>
+                    <li class="subnav-li" data-href="lkm_list" data-id="5">
+                        <a href="javascript:;">
+                            <i class="far fa-file"></i><span>联系人列表</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-li">
+                <a href="javascript:;"><i class="fas fa-caret-right"></i><span>客户拜访管理</span></a>
+                <!--因为有二级菜单，因此li中又包含ul + li -->
+                <ul class="sub-nav">
+                    <li class="subnav-li" data-href="main.html" data-id="6">
+                        <a href="javascript:;">
+                            <i class="far fa-file"></i><span>新增客户拜访</span>
+                        </a>
+                    </li>
+                    <li class="subnav-li" data-href="main.html" data-id="7">
+                        <a href="javascript:;">
+                            <i class="far fa-file"></i><span>客户拜访列表</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-li">
+                <a href="javascript:;"><i class="fas fa-caret-right"></i><span>综合查询</span></a>
+                <!--因为有二级菜单，因此li中又包含ul + li -->
+                <ul class="sub-nav">
+                    <li class="subnav-li" data-href="main.html" data-id="8">
+                        <a href="javascript:;">
+                            <i class="far fa-file"></i><span>客户信息查询</span>
+                        </a>
+                    </li>
+                    <li class="subnav-li" data-href="main.html" data-id="9">
+                        <a href="javascript:;">
+                            <i class="far fa-file"></i><span>联系人信息查询</span>
+                        </a>
+                    </li>
+                    <li class="subnav-li" data-href="main.html" data-id="10">
+                        <a href="javascript:;">
+                            <i class="far fa-file"></i><span>客户拜访记录查询</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-li">
+                <a href="javascript:;"><i class="fas fa-caret-right"></i><span>统计分析</span></a>
+                <!--因为有二级菜单，因此li中又包含ul + li -->
+                <ul class="sub-nav">
+                    <li class="subnav-li" data-href="main.html" data-id="11">
+                        <a href="javascript:;">
+                            <i class="far fa-file"></i><span>客户行业统计</span>
+                        </a>
+                    </li>
+                    <li class="subnav-li" data-href="main.html" data-id="12">
+                        <a href="javascript:;">
+                            <i class="far fa-file"></i><span>客户来源统计</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-li">
+                <a href="javascript:;"><i class="fas fa-caret-right"></i><span>系统管理</span></a>
+                <!--因为有二级菜单，因此li中又包含ul + li -->
+                <ul class="sub-nav">
+                    <li class="subnav-li" data-href="showRole" data-id="13">
+                        <a href="javascript:;">
+                            <i class="far fa-file"></i><span>角色管理</span>
+                        </a>
+                    </li>
+                    <li class="subnav-li" data-href="userShow" data-id="14">
+                        <a href="javascript:;">
+                            <i class="far fa-file"></i><span>用户管理</span>
+                        </a>
+                    </li>
+                    <li class="subnav-li" data-href="dictShow" data-id="15">
+                        <a href="javascript:;">
+                            <i class="far fa-file"></i><span>数据字典</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!--右侧显示内容部分-->
+    <div class="right-content">
+        <div class="right-content-header">
+            <div class="show-menu"><i class="fas fa-caret-right"></i></div>
+
+            <ul class="right-content-tab">
+                <!--<li><a href="javascript:;"><span>首页</span></a></li>
+                <li class="tab-current"> <a href="javascript:;"><span>新增客户</span><i class="fas fa-times"></i></a></li>-->
+            </ul>
+
+            <i class="fas fa-caret-square-down"></i>
+            <i class="fas fa-times-circle"></i>
+        </div>
+
+        <div class="right-content-iframe">
+            <!--<iframe width="100%" height="100%" frameborder="0" src="main.html" scrolling="yes"></iframe>-->
+        </div>
+    </div>
+</div>
+
+<ul class="tab-more">
+    <!--<li><a href="javascript:;"><span>新增客户客户</span></a><i class="fas fa-times"></i></li>
+    <li>
+        <a href="javascript:;"><span>新增客户</span></a><i class="fas fa-times"></i>
+    </li>
+    <li>
+        <a href="javascript:;"><span>新增客户</span></a><i class="fas fa-times"></i>
+    </li>-->
+</ul>
+
+
+
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/global.js"></script>
+<script src="js/skin_/nav.js"></script>
+<script>
+    new Menu({
+        nav:$(".nav")
+    });
+</script>
+</body>
+</html>

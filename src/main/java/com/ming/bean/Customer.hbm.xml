@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ming.bean">
+
+    <class name="com.ming.bean.Customer" table="customer">
+        <id name="custId" column="cust_id">
+            <generator class="native"/>
+        </id>
+
+        <property name="custName" column="cust_name" />
+        <many-to-one name="custUser" column="user_id" class="com.ming.bean.User" lazy="false"/>
+        <many-to-one name="custSource" column="cust_source" class="com.ming.bean.Dict" lazy="false"/>
+        <many-to-one name="custIndustry" column="cust_industry" class="com.ming.bean.Dict" lazy="false"/>
+        <many-to-one name="custLevel" column="cust_level" class="com.ming.bean.Dict" lazy="false"/>
+
+        <!--外键一对一-->
+        <one-to-one name="custDetail" class="com.ming.bean.CustDetail" property-ref="customer" cascade="all" lazy="false"/>
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+     http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <context:component-scan base-package="com.ming.dao"/>
+
+
+    <!-- 配置数据源 -->
+    <bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://cdb-1yfd1mlm.cd.tencentcdb.com:10056/crm"/>
+        <property name="user" value="root"/>
+        <property name="password" value="ABCcba20170607"/>
+        <property name="maxConnectionAge" value="10"/>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="datasource" />
+        <property name="hibernateProperties">
+            <value>
+                hibernate.dialect=org.hibernate.dialect.MySQLDialect
+                hibernate.show_sql=true
+                hibernate.format_sql=true
+                hibernate.hbm2ddl.auto=update
+            </value>
+        </property>
+        <property name="mappingResources">
+            <list>
+                <value>com/ming/bean/User.hbm.xml</value>
+                <value>com/ming/bean/Role.hbm.xml</value>
+                <value>com/ming/bean/Dict.hbm.xml</value>
+                <value>com/ming/bean/Customer.hbm.xml</value>
+                <value>com/ming/bean/CustDetail.hbm.xml</value>
+                <value>com/ming/bean/Linkman.hbm.xml</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <!--配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <!--配置增强-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="save*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
+            <tx:method name="insert*"  isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="psersist*"  isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="update*"  isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="modify*"  isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="delete*"  isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="del*"  isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
+            <tx:method name="remove*"  isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="query*"  isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true" />
+            <tx:method name="get*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true" />
+            <tx:method name="find*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true" />
+            <tx:method name="*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+        </tx:attributes>
+    </tx:advice>
+
+    <!--配置切面-->
+    <aop:config>
+        <aop:pointcut id="txPointcut" expression="execution(* com.ming.service.impl.*ServiceImpl.*(..))" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
+    </aop:config>
+
+    <!--配置dao-->
+    <bean id="roleDao" class="com.ming.dao.impl.RoleDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="userDao" class="com.ming.dao.impl.UserDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="dictDao" class="com.ming.dao.impl.DictDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="customerDao" class="com.ming.dao.impl.CustomerImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="linkmanDao" class="com.ming.dao.impl.LinkmanDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+
+
+    <!--配置service-->
+    <bean id="roleService" class="com.ming.service.impl.RoleServiceImpl">
+        <property name="roleDao" ref="roleDao" />
+    </bean>
+
+    <bean id="userService" class="com.ming.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao" />
+    </bean>
+
+    <bean id="dictService" class="com.ming.service.impl.DictServiceImpl">
+        <property name="dictDao" ref="dictDao" />
+    </bean>
+
+    <bean id="customerService" class="com.ming.service.impl.CustomerServiceImpl">
+        <property name="customerDao" ref="customerDao"/>
+    </bean>
+
+    <bean id="linkmanService" class="com.ming.service.impl.LinkmanServiceImpl">
+        <property name="linkmanDao" ref="linkmanDao"/>
+    </bean>
+
+    <!-- 配置验证码 -->
+    <bean id="validateCode" class="com.ming.utils.ValidateCode" scope="prototype">
+
+    </bean>
+    <!--配置action-->
+    <bean id="roleAction" class="com.ming.web.RoleAction" scope="prototype">
+        <property name="roleService" ref="roleService" />
+        <property name="userService" ref="userService" />
+    </bean>
+
+    <bean id="indexAction" class="com.ming.web.indexAction" scope="prototype">
+
+    </bean>
+
+    <bean id="userAction" class="com.ming.web.UserAction" scope="prototype">
+        <property name="roleService" ref="roleService"/>
+        <property name="userService" ref="userService"/>
+     </bean>
+
+    <bean id="loginAction" class="com.ming.web.LoginAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+
+    <bean id="dictAction" class="com.ming.web.DictAction" scope="prototype">
+        <property name="dictService" ref="dictService" />
+    </bean>
+
+
+    <bean id="customerAction" class="com.ming.web.CustomerAction" scope="prototype">
+        <property name="customerService" ref="customerService"/>
+        <property name="dictService" ref="dictService"/>
+    </bean>
+
+    <bean id="upload" class="com.ming.web.CustomerAction" scope="prototype"/>
+
+    <bean id="linkmanAction" class="com.ming.web.LinkmanAction" scope="prototype">
+        <property name="linkmanService" ref="linkmanService"/>
+        <property name="customerService" ref="customerService"/>
+    </bean>
+
+
+</beans>

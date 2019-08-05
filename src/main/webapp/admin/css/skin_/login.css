@@ -1,0 +1,136 @@
+.login-container{
+    height: 100%;
+    background: #0170A4 url("../../images/skin_/loginlight.png") no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.login-container .login-frame{
+    width: 640px;
+    height: 426px;
+    background: url("../../images/skin_/loginbox.png") no-repeat;
+    position: relative;
+}
+.login-frame .system-icon{
+    position: absolute;
+    left: 68px;
+    top: 10px;
+    display: inline-block;
+    width: 68px;
+    height: 72px;
+    background: url("../../images/skin_/loginlogo.png") no-repeat;
+}
+.login-frame .system-name{
+    position: absolute;
+    left: 90px;
+    top: 110px;
+    display: inline-block;
+    width: 329px;
+    height: 62px;
+    background: url("../../images/skin_/loginname.png") no-repeat;
+}
+.login-frame .login-input{
+    width: 480px;
+    height: 180px;
+    position: absolute;
+    left: 80px;
+    top: 200px;
+}
+.login-frame .user-name,
+.login-frame .user-pwd,
+.login-frame .validate-wrap{
+    height: 39px;
+    margin-top: 15px;
+}
+.login-frame .user-name span,
+.login-frame .user-pwd span,
+.login-frame .validate-wrap span{
+    line-height: 39px;
+}
+.login-frame .user-name input,
+.login-frame .user-pwd input,
+.login-frame .validate-wrap .validate input{
+    border: none;
+    outline: none;
+    width: 184px;
+    height: 39px;
+    padding-left: 10px;
+}
+.login-frame .user-name .user-input-wrap,
+.login-frame .user-pwd .password-input-wrap{
+    display: inline-block;
+    border: 1px solid #C5C7C9;
+    background-color: #F3F5F7;
+    border-radius: 10px;
+}
+.login-frame .user-name .user-input-wrap i,
+.login-frame .user-pwd .password-input-wrap i{
+    font-size: 16px;
+    margin-left: 20px;
+}
+.login-frame .user-name .user-input-wrap input,
+.login-frame .user-pwd .password-input-wrap input{
+    background-color: transparent;
+    border: none;
+}
+.login-frame .validate-wrap .validate-input-wrap {
+    display: inline-block;
+    font-size: 0;
+}
+.login-frame .validate-wrap .validate-input-wrap input{
+    border: 1px solid #C5C7C9;
+    width: 100px;
+    padding-left: 60px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.login-frame .validate-wrap .validate-input-wrap span{
+    display: inline-block;
+    background-color: #45C3F1;
+    border: 1px solid #45C3F1;
+    width: 70px;
+    text-align: center;
+    color: #fff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+#validateImg{
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+.validate-wrap .validate,
+.validate-wrap .submit-wrap{
+    display: inline-block;
+}
+.validate-wrap .submit-wrap input{
+    width: 120px;
+    height: 39px;
+    margin-left: 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: #42AFE2;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 16px;
+    cursor: pointer;
+}
+.validate-wrap .submit-wrap input:hover{
+    background-color: #ff0000;
+}
+
+/*底部版权信息*/
+footer span{
+    color: #fff;
+}
+
+.error-msg{
+    position: absolute;
+    left: 140px;
+    top: 375px;
+    color: #ff0000;
+}

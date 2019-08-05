@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ming.bean">
+
+    <class name="CustDetail" table="cust_detail">
+        <id name="custDetailId" column="cust_detail_id">
+            <generator class="native"/>
+        </id>
+
+        <property name="custRegion" column="cust_detail_region"></property>
+        <property name="custZip" column="cust_detail_zipo"></property>
+        <property name="custAddress" column="cust_detail_address"></property>
+        <property name="custFax" column="cust_detail_fax"></property>
+        <property name="custWebsite" column="cust_detail_website"></property>
+        <property name="custlicense" column="cust_detail_license"></property>
+        <property name="custCorporation" column="cust_detail_corporation"></property>
+        <property name="custCapital" column="cust_detail_capital"></property>
+        <property name="custBank" column="cust_detail_bank"></property>
+        <property name="custPic" column="cust_detail_pic"></property>
+        <property name="custComment" column="cust_detail_comment"></property>
+
+        <!--外键一对一    unique="true"-->
+        <many-to-one name="customer" class="Customer" column="cust_id" unique="true"></many-to-one>
+    </class>
+
+</hibernate-mapping>
