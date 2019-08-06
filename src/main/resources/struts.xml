@@ -72,7 +72,7 @@
             </result>
         </action>
 
-        <action name="validate" class="indexAction" method="generateValidateCode">
+        <action name="validate" class="validateCode" method="generateValidateCode">
         </action>
 
 

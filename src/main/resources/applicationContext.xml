@@ -160,5 +160,9 @@
         <property name="customerService" ref="customerService"/>
     </bean>
 
+    <bean id="fileUploadAction" class="com.ming.web.FileUploadAction" scope="prototype">
+
+    </bean>
+
 
 </beans>
